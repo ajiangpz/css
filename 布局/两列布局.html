@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0%;
+            padding: 0%;
+        }
+
+        .container {
+            display: -webkit-flex;
+            display: flex;
+            flex-flow: column nowrap;
+            height: 100%;
+            width: 100%;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            background: #424264;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .main {
+            display: flex;
+            flex: 1;
+            background: #EEEAEA;
+        }
+
+        .left {
+            width: auto;
+            height: 100%;
+        }
+
+        .right {
+            height: 100%;
+            background: #fff;
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">可视化工具</div>
+        <div class="main">
+            <div class="left">
+                <textarea name="textarea" id="textData" cols="50" rows="10" placeholder="excel,csv,json"></textarea>
+            </div>
+            <div class="right"></div>
+        </div>
+    </div>
+</body>
+
+</html>

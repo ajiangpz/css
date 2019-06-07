@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>各种垂直居中的方法</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.box{
+			width: 400px;
+			height: 100px;
+			background: lightblue;
+			text-align: center;
+			color: white;
+			padding: 10px 0;
+		}
+		.muti-line{
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 21px;
+			text-align: left;
+		}
+		.assist{
+			height: 100%;
+			vertical-align: middle;
+			display: inline-block;
+		}
+		.single-line{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.t_box{
+			width: 400px;
+			height: 100px;
+			background: lightblue;
+			text-align: center;
+			color: white;
+			padding: 10px 0;
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.t_img{
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<h3>父元素定宽高</h3>
+	<p>1.单行文本居中（只能是单行）,line-height</p>
+	<div class="box" style="line-height: 100px;">
+		<span>我是单行文本</span>
+	</div>
+	<p>
+	2.单个图片对齐,将图片整体看成单行，图片自带inline-block性质<br>
+	只需设置vertical-align:middle,和父元素的line-height
+	</p>
+	<div class="box" style="line-height: 100px;">
+		<img src=" https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1986179278,1118313821&fm=27&gp=0.jpg" width="100px" height="50px" style="vertical-align: middle;">
+	</div>
+	<p>
+	3.多行文本居中,将多行看成单个图像，设置内部元素自己的行高
+	</p>
+	<div class="box" style="line-height: 100px;">
+		<span class="muti-line">
+			我是第一行...<br>我是第二行..<br>我是第三行.<br>
+		</span>
+	</div>	
+	<h3>父元素不定宽高，也就是不使用line-height</h3>
+	<i>1.inline-block化,2.辅助元素调整基线3.vertical-align:middle
+	</i>
+	<p>单行文本</p>
+	<div class="box">
+		<span class="single-line">我是单行文本</span>
+		<i class="assist"></i>
+	</div>
+	<p>多行文本</p>
+	<div class="box">
+		<span class="single-line"> 
+			我是多行文本<br>我是多行文本<br>我是多行文本<br>
+		</span>
+		<i class="assist"></i>
+	</div>
+	<p>单个图片</p>
+	<div class="box">
+		<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1986179278,1118313821&fm=27&gp=0.jpg" width="100px" height="50px" style="vertical-align: middle"
+		/>	
+		<i class="assist"></i>
+	</div>
+	<p>淘宝单个图片居中</p>
+	<span class="t_box">
+		<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1986179278,1118313821&fm=27&gp=0.jpg" width="100px" height="50px" class="t_img" 
+		/>	
+	</span>
+</body>
+</html>

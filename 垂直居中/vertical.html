@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vertical对齐</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.img-container{
+			background: lightblue;
+			height: 300px;
+			color: white;
+			margin-bottom: 10px;
+			font-size: 0;
+		}
+		.img-container img{
+			vertical-align: middle;
+		}
+		.img-container span{
+			line-height: 300px;
+
+		}
+		.baseline div{
+			display: inline-block;
+			width: 200px;
+			height: 200px;
+			line-height: 200px;
+			background: lightblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="img-container">
+		<img src="http://img5.imgtn.bdimg.com/it/u=2841372102,1121735675&fm=11&gp=0.jpg">
+		<span>aaaa</span>
+	</div>
+	<div class="baseline">
+		<div class="baseline_x" style="vertical-align: text-top;"></div><!--空白换行节点-->
+		<p>
+		一个inline-block元素，如果里面没有inline内联元素，或者overflow不是visible，则该元素的基线就是其margin底边缘，否则，其基线就是元素里面最后一行内联元素的基线。</p>
+		<p>
+		将元素盒子的垂直中点与父盒子的baseline加上父盒子的x-height的一半位置对齐这里元素盒子的垂直中点容易确定，父盒子的baseline也好确定，但是x-height要进行计算得到，这个x-height就是字母x的高度。
+		</p>
+		<div class="baseline_x">默认baseline对齐</div>
+		<div class="baseline_x" style="vertical-align: text-bottom;">aaaa</div>
+	</div>
+</body>
+</html>

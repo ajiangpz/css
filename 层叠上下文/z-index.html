@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>层叠上下文</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{
+			background: lightgreen;
+		}
+		.box{
+			width: 500px;
+			height: 500px;
+			margin-top: 50px;
+		}
+		.box:nth-child(2){
+			background: lightblue;
+			transform: rotate(0deg);
+
+			/* 
+				滤镜，产生了层叠上下文，父元素本身属于body层叠层，相当于z-index:auto
+				同时自身又形成了层叠层，其子元素只会在父元素的层叠层排列。
+				兄弟元素的子元素的层叠水平之间没有关系，只兄弟元素本身的层叠水平有关
+				A的层叠水平大于B，那么A的子元素就算是最低的层叠水平也会覆盖B元素子元素中的最高层叠水平
+
+			*/
+		}
+		.box:nth-child(1){
+			background: lightseagreen;
+			position: relative;
+			/* 没有形成层叠上下文，因此层叠上下文为父元素即body
+			/*
+			元素一旦成为定位元素，其z-index就会自动生效，此时其z-index就是默认的auto，也就是0级别，根据上面的层叠顺序表，就会覆盖inline或block或float元素。
+			不依赖z-index成为层叠上下文的元素即css3形成的层叠上下文，其z-index值为0，这样就与定位元素平起平坐，遵循后来居上的原则。
+			如果元素没有定位，那么其层叠上下文就是body，
+			*/
+
+		}
+		.box >div{
+			width: 200px;
+			height:100px;
+			box-shadow: 1px 1px  2px #666; 
+		}
+		.box .positive{
+			position: relative;
+			z-index: 1;
+			background: tomato;
+		}		
+		.box .auto{
+			margin-top:  -50px;
+			margin-left: 50px;
+			position: relative;
+			background:lightpink;
+			/* 相对定位产生层叠上下文，相当于z-index:-1; */
+			/* z-index只对定位元素起作用，如position:relective,absolute*/	
+		}
+		.box .inline{
+			margin-top: -50px;
+			margin-left: 100px;
+			display: inline-block;
+			background: lightsalmon;
+		}
+		.box .float{
+			margin-top: -50px;
+			margin-left: 150px;
+			float: left;
+			background: lightyellow;
+		}
+		.box .block{
+			margin-top: 0px;
+			margin-left: 200px;
+			display: block;
+			background: orange;
+		}
+		.box .nagative{
+			margin-top: -50px;
+			margin-left: 250px;
+			z-index: -1;
+			position: relative;
+			background: lightcyan;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="box">
+		<div class="positive"></div>
+		<div class="auto"></div>
+		<div class="inline"></div>
+		<div class="float"></div>
+		<div class="block"></div>
+		<div class="nagative"></div>
+	</div>
+		<div class="box">
+		<div class="positive"></div>
+		<div class="auto"></div>
+		<div class="inline"></div>
+		<div class="float"></div>
+		<div class="block"></div>
+		<div class="nagative"></div>
+	</div>
+</body>
+</html>

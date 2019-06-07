@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>外边距折叠</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+		}
+		.m1{
+			margin-bottom: 20px;
+			background: green;
+		}
+		.m2{
+			margin-top: 20px;
+			background: red;
+		}
+		.m3{
+			margin-top: 20px;
+			width: 200px;
+			height: 200px;
+			background:yellow;
+		}
+		.m3 .m3_c{
+			width: 100px;
+			height: 100px;
+			margin-top: 20px;
+			background: lightblue;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="m1"></div>
+	<div class="m2"></div>
+	<div class="m3">
+		<div class="m3_c"></div>
+	</div>
+</body>
+</html>

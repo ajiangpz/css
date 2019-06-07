@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .HG{
+            display: flex;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+        }
+        .HG header,footer{
+            background: tomato;
+            color: white;
+            text-align: center;
+            height: 2em;
+            line-height: 2em;
+        }
+        .HG .HG-body{
+            width: 100%;
+            display: flex;
+            flex: 1;
+        }
+        .HG-body .HG-nav,.HG-ads{
+            flex: 0 0 10em;
+            height: 100%;
+            background: lightblue;
+        }
+        .HG .HG-body .HG-content{
+            background: lightgreen;
+            flex: 1;
+        }
+        @media (max-width:768px){
+            .HG-body{
+                flex-direction: column;
+                flex: 1;
+            }
+            .HG .HG-body .HG-ads,.HG .HG-body .HG-nav,.HG .HG-body .HG-content{
+                flex: auto;
+            }
+        }
+    </style>
+</head>
+<body class="HG">
+    <header>header</header>
+    <div class="HG-body">
+            <main class="HG-content">content</main>
+        <nav class="HG-nav" style="order: -1">nav</nav>
+       
+        <aside class="HG-ads">ads</aside> 
+  
+    </div>
+    <footer>footer</footer>
+</body>
+</html>
